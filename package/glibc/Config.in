@@ -43,6 +43,12 @@ config BR2_GLIBC_VERSION_2_22
 
 endchoice
 
+
+config BR2_GLIBC_WITH_LDCONFIG
+	bool "Enable ldconfig"
+	help
+	  Enables compiling a ldconfig utility with the glibc.
+          This is sometimes needed for library lookup.
 endif
 
 config BR2_GLIBC_VERSION_STRING

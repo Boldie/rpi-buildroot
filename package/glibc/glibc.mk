@@ -119,7 +119,10 @@ define GLIBC_INSTALL_TARGET_CMDS
 	for libs in $(GLIBC_LIBS_LIB); do \
 		$(call copy_toolchain_lib_root,$(STAGING_DIR)/,,lib,$$libs,/lib) ; \
 	done
+	
+	$(if $(BR2_GLIBC_WITH_LDCONFIG), install -m 755 $(@D)/build/elf/ldconfig $(TARGET_DIR)/usr/sbin/ldconfig)
 endef
+
 
 # MIPS R6 requires to have NaN2008 support which is currently not
 # supported by the Linux kernel. In order to prevent building the
